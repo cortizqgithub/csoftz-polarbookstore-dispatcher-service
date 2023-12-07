@@ -3,7 +3,7 @@ on: push
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: cortizqgithub/order-service
+  IMAGE_NAME: cortizqgithub/dispatcher-service
   VERSION: latest
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
             kubeval --strict -d k8s
   package:
     name: Package and Publish
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     needs: [ build ]
     runs-on: ubuntu-22.04
     permissions:
